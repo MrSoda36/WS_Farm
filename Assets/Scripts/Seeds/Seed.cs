@@ -3,6 +3,7 @@
 public class Seed : MonoBehaviour
 {
     private bool _isPlanted;
+    [SerializeField]
     private Plant _plant;
 
     public int Cost { get; private set; }
@@ -20,7 +21,7 @@ public class Seed : MonoBehaviour
         }
 
         _isPlanted = true;
-        Plant newPlant = Instantiate(_plant, field.transform.position, Quaternion.identity); // Pas de GameObject
+        Plant newPlant = Instantiate(_plant, field.transform.position, Quaternion.identity);
         StartCoroutine(newPlant.Grow());
         return newPlant;
     }

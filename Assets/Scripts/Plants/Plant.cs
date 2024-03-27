@@ -24,6 +24,7 @@ public class Plant : MonoBehaviour
     {
         IsGrown = false;
         yield return new WaitForSeconds(growthTime);
+        Debug.Log("Plant is grown.");
         IsGrown = true;
     }
 }
