@@ -5,7 +5,25 @@ public class PlayerMoney : MonoBehaviour
 {
     [SerializeField]
     private PlayerMain _playerMain;
-    private int _money;
 
     public event Action<int> OnMoneyChanged;
+
+    public int Money { get; private set; }
+
+    public void GainMoney(int amount)
+    {
+        Money += amount;
+        OnMoneyChanged?.Invoke(Money);
+    }
+
+    public void SpendMoney(int amount)
+    {
+        Money -= amount;
+        OnMoneyChanged?.Invoke(Money);
+    }
+
+    private void Awake()
+    {
+        Money = 20;
+    }
 }

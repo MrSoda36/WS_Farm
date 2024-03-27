@@ -20,8 +20,15 @@ public class Seed : MonoBehaviour
         }
 
         _isPlanted = true;
-        Plant newPlant = Instantiate(_plant, field.transform.position, Quaternion.identity);
+        Plant newPlant = Instantiate(_plant, field.transform.position, Quaternion.identity); // Pas de GameObject
         StartCoroutine(newPlant.Grow());
         return newPlant;
+    }
+
+    private void Awake()
+    {
+        Cost = 10;
+        _isPlanted = false;
+        _plant = new Plant(Cost * 2, 1.5f);
     }
 }

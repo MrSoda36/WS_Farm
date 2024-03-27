@@ -11,14 +11,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private PlayerMain _playerMain;
 
-    private void Start()
-    {
-        _rb = GetComponent<Rigidbody2D>();
-    }
-
     public void OnMove(InputValue value)
     {
         Vector2 direction = value.Get<Vector2>();
         _rb.velocity = direction * _speed;
+    }
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody2D>();
     }
 }

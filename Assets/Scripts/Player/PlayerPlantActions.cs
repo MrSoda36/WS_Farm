@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerPlantActions : MonoBehaviour
 {
+    [SerializeField]
     private PlayerMain _playerMain;
-    private List<Plant> plants;
+    private List<Plant> _plants = new List<Plant>();
 
     public event Action<Plant> OnPlantChanged;
 
@@ -16,9 +17,9 @@ public class PlayerPlantActions : MonoBehaviour
     /// <returns>True if the collect succeced. False if it failed.</returns>
     public bool CollectPlant(Plant plant)
     {
-        if (plants.Count <= 4)
+        if (_plants.Count < 4)
         {
-            plants.Add(plant);
+            _plants.Add(plant);
             OnPlantChanged?.Invoke(plant);
             plant.gameObject.SetActive(false);
             return true;
