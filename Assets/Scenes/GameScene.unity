@@ -1234,10 +1234,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeedShop
       objectReference: {fileID: 0}
-    - target: {fileID: 5966980678943221399, guid: 81c1831a190e36f42aac08d4b3c34e76, type: 3}
-      propertyPath: _seed
-      value: 
-      objectReference: {fileID: 7720191721500248458, guid: 68759eac64d19184283c15dabc7709a9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -2,10 +2,9 @@
 
 public class Seed : MonoBehaviour
 {
-    private bool _isPlanted;
-    [SerializeField]
-    private Plant _plant;
+    private GameObject _plant;
 
+    [field: SerializeField]
     public int Cost { get; private set; }
 
     /// <summary>
@@ -13,23 +12,10 @@ public class Seed : MonoBehaviour
     /// </summary>
     /// <param name="field">Field in which the seed is planted.</param>
     /// <returns>The new plant.</returns>
-    public Plant Plant(Field field)
+    public GameObject Plant(Field field)
     {
-        if (_isPlanted)
-        {
-            return null;
-        }
-
-        _isPlanted = true;
-        Plant newPlant = Instantiate(_plant, field.transform.position, Quaternion.identity);
-        StartCoroutine(newPlant.Grow());
+        Debug.Log("Seed planted.");
+        GameObject newPlant = Instantiate(_plant, field.transform.position, Quaternion.identity);
         return newPlant;
-    }
-
-    private void Awake()
-    {
-        Cost = 10;
-        _isPlanted = false;
-        _plant = new Plant(Cost * 2, 1.5f);
     }
 }

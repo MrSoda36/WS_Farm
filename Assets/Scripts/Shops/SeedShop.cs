@@ -3,17 +3,17 @@
 public class SeedShop : MonoBehaviour
 {
     [SerializeField]
-    private Seed _seed;
+    private GameObject _seedObject;
 
     public int SeedPrice { get; private set; }
 
-    public Seed BuySeed()
+    public GameObject BuySeed()
     {
-        return _seed;
+        return _seedObject;
     }
 
     private void Awake()
     {
-        SeedPrice = _seed.Cost;
+        SeedPrice = _seedObject.GetComponent<Seed>().Cost;
     }
 }

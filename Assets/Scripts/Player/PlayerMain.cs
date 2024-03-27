@@ -19,18 +19,18 @@ public class PlayerMain : MonoBehaviour
         {
             if (_gameObject.TryGetComponent(out Field field))
             {
-                Debug.Log("Interacting with a field : " + _gameObject);
+                Debug.Log("[FIELD] Try planting a seed");
                 _playerSeedActions.PlantSeed(field);
             }
             else if (_gameObject.TryGetComponent(out SeedShop seedShop))
             {
-                Debug.Log("Interacting with Seed Shop : " + _gameObject);
                 if (_playerMoney.Money >= seedShop.SeedPrice)
                 {
-                    Seed seed = seedShop.BuySeed();
-                    bool actionSuccess = _playerSeedActions.AddSeed(seed);
+                    GameObject seedObject = seedShop.BuySeed();
+                    bool actionSuccess = _playerSeedActions.AddSeed(seedObject);
                     if (actionSuccess)
                     {
+                        Debug.Log("Seed bought for " + seedShop.SeedPrice);
                         _playerMoney.SpendMoney(seedShop.SeedPrice);
                     }
                     else
@@ -43,15 +43,25 @@ public class PlayerMain : MonoBehaviour
                     Debug.Log("Not enough money to buy seed.");
                 }
             }
+            else if (_gameObject.TryGetComponent(out Plant plant))
+            {
+                Debug.Log("[PLANT] Try collecting plant");
+                _playerPlantActions.CollectPlant(plant.gameObject);
+            }
+            else if (_gameObject.TryGetComponent(out PlantSeller plantSeller))
+            {
+                int plantValue = plantSeller.SellPlant(_playerPlantActions.RemovePlant());
+                if (plantValue != -1)
+                {
+                    Debug.Log("Plant sold for " + plantValue);
+                    _playerMoney.GainMoney(plantValue);
+                }
+                else
+                {
+                    Debug.Log("No plant to sell.");
+                }
+            }
         }
-    }
-
-    private void Awake()
-    {
-        _playerMovement = GetComponent<PlayerMovement>();
-        _playerMoney = GetComponent<PlayerMoney>();
-        _playerSeedActions = GetComponent<PlayerSeedActions>();
-        _playerPlantActions = GetComponent<PlayerPlantActions>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -6,8 +6,7 @@ public class PlayerSeedActions : MonoBehaviour
 {
     [SerializeField]
     private PlayerMain _playerMain;
-    [SerializeField]
-    private List<Seed> _seeds = new List<Seed>();
+    private List<GameObject> _seeds = new List<GameObject>();
 
     public event Action<Seed> OnSeedChanged;
 
@@ -23,12 +22,12 @@ public class PlayerSeedActions : MonoBehaviour
         _seeds.RemoveAt(0);
     }
 
-    public bool AddSeed(Seed seed)
+    public bool AddSeed(GameObject seed)
     {
         if (_seeds.Count < 4)
         {
             _seeds.Add(seed);
-            OnSeedChanged?.Invoke(seed);
+            OnSeedChanged?.Invoke(seed.GetComponent<Seed>());
             return true;
         }
         else

@@ -3,14 +3,11 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
-    private int value;
+    [SerializeField]
     private float growthTime;
 
-    public Plant(int value, float growthTime)
-    {
-        this.value = value;
-        this.growthTime = growthTime;
-    }
+    [field: SerializeField]
+    public int Value { get; private set; }
 
     public Field Field { get; private set; }
 
