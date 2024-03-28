@@ -6,11 +6,19 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
+    /// <summary>
+    /// Movement speed of the player.
+    /// </summary>
     private float _speed = 5f;
     private Rigidbody2D _rb;
     [SerializeField]
     private PlayerMain _playerMain;
 
+    /// <summary>
+    /// Handle the player movement.
+    /// Unity function called by the Input System.
+    /// </summary>
+    /// <param name="value">Value from the Player's input</param>
     public void OnMove(InputValue value)
     {
         Vector2 direction = value.Get<Vector2>();

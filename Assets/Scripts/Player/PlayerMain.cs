@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Main class for the player.
+/// It handles the player interactions with the game objects.
+/// It store references to the player's components.
+/// </summary>
 public class PlayerMain : MonoBehaviour
 {
     [SerializeField]
@@ -13,6 +18,9 @@ public class PlayerMain : MonoBehaviour
 
     private GameObject _gameObject;
 
+    /// <summary>
+    /// Handle the player interaction with the game object.
+    /// </summary>
     public void OnInteract()
     {
         if (_gameObject != null)

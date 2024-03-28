@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class handling the player's actions with plants in the game.
+/// </summary>
 public class PlayerPlantActions : MonoBehaviour
 {
     [SerializeField]
     private PlayerMain _playerMain;
     private List<GameObject> _plants = new List<GameObject>();
 
+    /// <summary>
+    /// Event when the number of plants in the player's inventory changes.
+    /// </summary>
     public event Action<int> OnPlantChanged;
 
     /// <summary>
@@ -38,6 +44,10 @@ public class PlayerPlantActions : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Remove a plant from the player's inventory.
+    /// </summary>
+    /// <returns>The removed plant's GameObject.</returns>
     public GameObject RemovePlant()
     {
         if (_plants.Count > 0)

@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Class representing a seed in the game.
+/// A seed can be planted in a field, creating a plant.
+/// </summary>
 public class Seed : MonoBehaviour
 {
     [SerializeField]
     private GameObject _plant;
 
+    /// <summary>
+    /// Gets the cost of the seed.
+    /// </summary>
     [field: SerializeField]
     public int Cost { get; private set; }
 
