@@ -31,7 +31,7 @@ public class Plant : MonoBehaviour
     /// <summary>
     /// Grow the plant after a certain amount of time.
     /// </summary>
-    /// <returns>Coroutine stuff(?).</returns>
+    /// <returns>Wait for the growthTime.</returns>
     public IEnumerator Grow()
     {
         IsGrown = false;
