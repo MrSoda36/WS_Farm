@@ -16,20 +16,20 @@ public class PlayerMain : MonoBehaviour
     [SerializeField]
     private PlayerPlantActions _playerPlantActions;
 
-    private GameObject _gameObject;
+    private GameObject _interactedObject;
 
     /// <summary>
     /// Handle the player interaction with the game object.
     /// </summary>
     public void OnInteract()
     {
-        if (_gameObject != null)
+        if (_interactedObject != null)
         {
-            if (_gameObject.TryGetComponent(out Field field))
+            if (_interactedObject.TryGetComponent(out Field field))
             {
                 _playerSeedActions.PlantSeed(field);
             }
-            else if (_gameObject.TryGetComponent(out SeedShop seedShop))
+            else if (_interactedObject.TryGetComponent(out SeedShop seedShop))
             {
                 if (_playerMoney.Money >= seedShop.SeedPrice)
                 {
@@ -49,11 +49,11 @@ public class PlayerMain : MonoBehaviour
                     // Not enough money for seed
                 }
             }
-            else if (_gameObject.TryGetComponent(out Plant plant))
+            else if (_interactedObject.TryGetComponent(out Plant plant))
             {
                 _playerPlantActions.CollectPlant(plant.gameObject);
             }
-            else if (_gameObject.TryGetComponent(out PlantSeller plantSeller))
+            else if (_interactedObject.TryGetComponent(out PlantSeller plantSeller))
             {
                 int plantValue = plantSeller.SellPlant(_playerPlantActions.RemovePlant());
                 if (plantValue != -1)
@@ -70,6 +70,11 @@ public class PlayerMain : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _gameObject = collision.gameObject;
+        _interactedObject = collision.gameObject;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _interactedObject = null;
     }
 }

@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMain: {fileID: 5226521663379162271}
+  <Money>k__BackingField: 0
 --- !u!114 &5226521663379162271
 MonoBehaviour:
   m_ObjectHideFlags: 0

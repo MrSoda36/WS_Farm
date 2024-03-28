@@ -922,9 +922,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8702815876399109365, guid: d0f7b7ff714d4aa4ea4f9911249ac9c0, type: 3}
-      propertyPath: _seeds.Array.size
-      value: 0
+    - target: {fileID: 7901790357606902086, guid: d0f7b7ff714d4aa4ea4f9911249ac9c0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901790357606902086, guid: d0f7b7ff714d4aa4ea4f9911249ac9c0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
