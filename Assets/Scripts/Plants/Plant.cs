@@ -7,11 +7,10 @@ using UnityEngine;
 /// </summary>
 public class Plant : MonoBehaviour
 {
-    /// <summary>
-    /// Time it takes for the plant to grow.
-    /// </summary>
     [SerializeField]
     private float _growthTime;
+    [SerializeField]
+    private ParticleSystem _plantParticles;
 
     /// <summary>
     /// Gets the money value of the plant.
@@ -38,6 +37,7 @@ public class Plant : MonoBehaviour
         IsGrown = false;
         yield return new WaitForSeconds(_growthTime);
         Debug.Log("Plant is grown.");
+        _plantParticles.Play();
         IsGrown = true;
     }
 
