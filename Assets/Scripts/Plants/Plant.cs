@@ -24,4 +24,9 @@ public class Plant : MonoBehaviour
         Debug.Log("Plant is grown.");
         IsGrown = true;
     }
+
+    public void SetField(Field field)
+    {
+        Field = field;
+    }
 }

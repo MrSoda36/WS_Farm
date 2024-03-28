@@ -19,7 +19,6 @@ public class PlayerMain : MonoBehaviour
         {
             if (_gameObject.TryGetComponent(out Field field))
             {
-                Debug.Log("[FIELD] Try planting a seed");
                 _playerSeedActions.PlantSeed(field);
             }
             else if (_gameObject.TryGetComponent(out SeedShop seedShop))
@@ -30,22 +29,20 @@ public class PlayerMain : MonoBehaviour
                     bool actionSuccess = _playerSeedActions.AddSeed(seedObject);
                     if (actionSuccess)
                     {
-                        Debug.Log("Seed bought for " + seedShop.SeedPrice);
                         _playerMoney.SpendMoney(seedShop.SeedPrice);
                     }
                     else
                     {
-                        Debug.Log("Not enough space to carry seed.");
+                        // Not enough space for seed
                     }
                 }
                 else
                 {
-                    Debug.Log("Not enough money to buy seed.");
+                    // Not enough money for seed
                 }
             }
             else if (_gameObject.TryGetComponent(out Plant plant))
             {
-                Debug.Log("[PLANT] Try collecting plant");
                 _playerPlantActions.CollectPlant(plant.gameObject);
             }
             else if (_gameObject.TryGetComponent(out PlantSeller plantSeller))
@@ -53,12 +50,11 @@ public class PlayerMain : MonoBehaviour
                 int plantValue = plantSeller.SellPlant(_playerPlantActions.RemovePlant());
                 if (plantValue != -1)
                 {
-                    Debug.Log("Plant sold for " + plantValue);
                     _playerMoney.GainMoney(plantValue);
                 }
                 else
                 {
-                    Debug.Log("No plant to sell.");
+                    // No plant to sell
                 }
             }
         }

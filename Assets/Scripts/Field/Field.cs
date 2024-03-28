@@ -5,26 +5,24 @@ public class Field : MonoBehaviour
     [field: SerializeField]
     public GameObject PlantedPlant { get; private set; }
 
-    public void Collect(PlayerPlantActions player)
+    public bool Collect()
     {
-        bool actionSucces = false;
         if (PlantedPlant != null)
         {
             if (PlantedPlant.GetComponent<Plant>().IsGrown)
             {
-                actionSucces = player.CollectPlant(PlantedPlant);
-                Debug.Log("Collect succes ? : " + actionSucces);
+                PlantedPlant.GetComponent<Plant>().SetField(null);
+                PlantedPlant = null;
+                return true;
             }
             else
             {
-                Debug.Log("Plant is not grown yet.");
+                return false;
             }
-
-            if (actionSucces)
-            {
-                Debug.Log("Removing plant from field.");
-                PlantedPlant = null;
-            }
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -34,6 +32,7 @@ public class Field : MonoBehaviour
         {
             PlantedPlant = seed.GetComponent<Seed>().Plant(this);
             PlantedPlant.transform.SetParent(transform);
+            PlantedPlant.GetComponent<Plant>().SetField(this);
             StartCoroutine(PlantedPlant.GetComponent<Plant>().Grow());
         }
     }

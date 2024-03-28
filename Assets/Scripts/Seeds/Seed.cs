@@ -2,6 +2,7 @@
 
 public class Seed : MonoBehaviour
 {
+    [SerializeField]
     private GameObject _plant;
 
     [field: SerializeField]

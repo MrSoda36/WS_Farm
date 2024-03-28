@@ -8,7 +8,7 @@ public class PlayerSeedActions : MonoBehaviour
     private PlayerMain _playerMain;
     private List<GameObject> _seeds = new List<GameObject>();
 
-    public event Action<Seed> OnSeedChanged;
+    public event Action<int> OnSeedChanged;
 
     public void PlantSeed(Field field)
     {
@@ -20,6 +20,7 @@ public class PlayerSeedActions : MonoBehaviour
 
         field.PlantSeed(_seeds[0]);
         _seeds.RemoveAt(0);
+        OnSeedChanged?.Invoke(_seeds.Count);
     }
 
     public bool AddSeed(GameObject seed)
@@ -27,7 +28,7 @@ public class PlayerSeedActions : MonoBehaviour
         if (_seeds.Count < 4)
         {
             _seeds.Add(seed);
-            OnSeedChanged?.Invoke(seed.GetComponent<Seed>());
+            OnSeedChanged?.Invoke(_seeds.Count);
             return true;
         }
         else
