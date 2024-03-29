@@ -33,14 +33,6 @@ public class PlayerPlantActions : MonoBehaviour
                 plant.gameObject.SetActive(false);
                 plant.transform.SetParent(transform);
             }
-            else
-            {
-                Debug.Log("Plant is not grown yet.");
-            }
-        }
-        else
-        {
-            Debug.Log("You can't carry more than 4 plants.");
         }
     }
 
@@ -59,7 +51,6 @@ public class PlayerPlantActions : MonoBehaviour
         }
         else
         {
-            Debug.Log("You don't have any plants.");
             return null;
         }
     }

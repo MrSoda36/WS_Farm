@@ -22,7 +22,6 @@ public class Seed : MonoBehaviour
     /// <returns>The new plant.</returns>
     public GameObject Plant(Field field)
     {
-        Debug.Log("Seed planted.");
         GameObject newPlant = Instantiate(_plant, field.transform.position, Quaternion.identity);
         return newPlant;
     }

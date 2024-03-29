@@ -29,6 +29,10 @@ public class PlayerMain : MonoBehaviour
             {
                 _playerSeedActions.PlantSeed(field);
             }
+            else if (_interactedObject.TryGetComponent(out Plant plant))
+            {
+                _playerPlantActions.CollectPlant(plant.gameObject);
+            }
             else if (_interactedObject.TryGetComponent(out SeedShop seedShop))
             {
                 if (_playerMoney.Money >= seedShop.SeedPrice)
@@ -39,19 +43,7 @@ public class PlayerMain : MonoBehaviour
                     {
                         _playerMoney.SpendMoney(seedShop.SeedPrice);
                     }
-                    else
-                    {
-                        // Not enough space for seed
-                    }
                 }
-                else
-                {
-                    // Not enough money for seed
-                }
-            }
-            else if (_interactedObject.TryGetComponent(out Plant plant))
-            {
-                _playerPlantActions.CollectPlant(plant.gameObject);
             }
             else if (_interactedObject.TryGetComponent(out PlantSeller plantSeller))
             {
@@ -59,10 +51,6 @@ public class PlayerMain : MonoBehaviour
                 if (plantValue != -1)
                 {
                     _playerMoney.GainMoney(plantValue);
-                }
-                else
-                {
-                    // No plant to sell
                 }
             }
         }

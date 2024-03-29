@@ -24,7 +24,6 @@ public class PlayerSeedActions : MonoBehaviour
     {
         if (_seeds.Count == 0)
         {
-            Debug.Log("You don't have any seeds.");
             return;
         }
 
@@ -48,7 +47,6 @@ public class PlayerSeedActions : MonoBehaviour
         }
         else
         {
-            Debug.Log("You can't carry more than 4 seeds.");
             return false;
         }
     }
