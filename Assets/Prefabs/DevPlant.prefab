@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7ea4bb1df09b24d87ca5f0734db653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _growthTime: 3
+  _growthTime: 2
   _growthMaxStage: 4
   _plantParticles: {fileID: 5698948099026340128}
   _growthSprites:
