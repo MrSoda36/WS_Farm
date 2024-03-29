@@ -10,7 +10,11 @@ public class Plant : MonoBehaviour
     [SerializeField]
     private float _growthTime;
     [SerializeField]
+    private int _growthMaxStage;
+    [SerializeField]
     private ParticleSystem _plantParticles;
+    [SerializeField]
+    private Sprite[] _growthSprites;
 
     /// <summary>
     /// Gets the money value of the plant.
@@ -34,8 +38,15 @@ public class Plant : MonoBehaviour
     /// <returns>Wait for the growthTime.</returns>
     public IEnumerator Grow()
     {
+        int stage = 0;
         IsGrown = false;
-        yield return new WaitForSeconds(_growthTime);
+        while (stage < _growthMaxStage)
+        {
+            yield return new WaitForSeconds(_growthTime);
+            GetComponent<SpriteRenderer>().sprite = _growthSprites[stage];
+            stage++;
+        }
+
         _plantParticles.Play();
         IsGrown = true;
     }
