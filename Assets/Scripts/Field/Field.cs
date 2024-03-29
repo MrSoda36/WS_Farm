@@ -22,7 +22,7 @@ public class Field : MonoBehaviour
         {
             if (PlantedPlant.GetComponent<Plant>().IsGrown)
             {
-                PlantedPlant.GetComponent<Plant>().SetField(null);
+                PlantedPlant.GetComponent<Plant>().Field = null;
                 PlantedPlant = null;
                 return true;
             }
@@ -47,7 +47,7 @@ public class Field : MonoBehaviour
         {
             PlantedPlant = seed.GetComponent<Seed>().Plant(this);
             PlantedPlant.transform.SetParent(transform);
-            PlantedPlant.GetComponent<Plant>().SetField(this);
+            PlantedPlant.GetComponent<Plant>().Field = this;
             StartCoroutine(PlantedPlant.GetComponent<Plant>().Grow());
         }
     }

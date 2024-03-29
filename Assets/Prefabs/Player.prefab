@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5226521663379162271}
   - component: {fileID: 5530975651975501523}
   - component: {fileID: 8702815876399109365}
+  - component: {fileID: 3027629564986900817}
   - component: {fileID: 3885091194524704127}
   m_Layer: 0
   m_Name: Player
@@ -225,10 +226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a9ecd64e0911442836a6f8255c0ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMovement: {fileID: 9006676100599938553}
-  _playerMoney: {fileID: 2564430203012660964}
-  _playerSeedActions: {fileID: 8702815876399109365}
-  _playerPlantActions: {fileID: 5530975651975501523}
+  <PlayerMovement>k__BackingField: {fileID: 9006676100599938553}
+  <PlayerMoney>k__BackingField: {fileID: 2564430203012660964}
+  <PlayerSeedActions>k__BackingField: {fileID: 8702815876399109365}
+  <PlayerPlantActions>k__BackingField: {fileID: 5530975651975501523}
+  <PlayerInteractions>k__BackingField: {fileID: 3027629564986900817}
 --- !u!114 &5530975651975501523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +254,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f00d32c31816c0a4e983159a0d5ef3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMain: {fileID: 5226521663379162271}
+--- !u!114 &3027629564986900817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7074814023517166010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b2492705078814ca41816007479b5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMain: {fileID: 5226521663379162271}

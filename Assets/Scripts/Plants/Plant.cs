@@ -23,9 +23,9 @@ public class Plant : MonoBehaviour
     public int Value { get; private set; }
 
     /// <summary>
-    /// Gets the field where the plant is planted.
+    /// Gets or sets the field where the plant is planted.
     /// </summary>
-    public Field Field { get; private set; }
+    public Field Field { get; set; }
 
     /// <summary>
     /// Gets a value indicating whether the plant is fully grown.
@@ -49,14 +49,5 @@ public class Plant : MonoBehaviour
 
         _plantParticles.Play();
         IsGrown = true;
-    }
-
-    /// <summary>
-    /// Sets the field where the plant is planted.
-    /// </summary>
-    /// <param name="field">The field in which the plant is planted.</param>
-    public void SetField(Field field)
-    {
-        Field = field;
     }
 }

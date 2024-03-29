@@ -5,25 +5,19 @@
 /// </summary>
 public class SeedShop : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _seedObject;
+    /// <summary>
+    /// Gets the GameObject of the seed.
+    /// </summary>
+    [field: SerializeField]
+    public GameObject SeedObject { get; private set; }
 
     /// <summary>
     /// Gets the price of the seed.
     /// </summary>
     public int SeedPrice { get; private set; }
 
-    /// <summary>
-    /// Buy a seed.
-    /// </summary>
-    /// <returns>The GameObject of the seed.</returns>
-    public GameObject BuySeed()
-    {
-        return _seedObject;
-    }
-
     private void Awake()
     {
-        SeedPrice = _seedObject.GetComponent<Seed>().Cost;
+        SeedPrice = SeedObject.GetComponent<Seed>().Cost;
     }
 }

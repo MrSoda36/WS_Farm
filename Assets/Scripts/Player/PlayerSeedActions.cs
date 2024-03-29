@@ -35,7 +35,7 @@ public class PlayerSeedActions : MonoBehaviour
     /// <summary>
     /// Add a seed to the player's inventory.
     /// </summary>
-    /// <param name="seed">The added seed's GameObject</param>
+    /// <param name="seed">The added seed's GameObject.</param>
     /// <returns>True if there is enough space, false if the inventory is full.</returns>
     public bool AddSeed(GameObject seed)
     {
